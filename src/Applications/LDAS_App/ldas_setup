@@ -54,7 +54,7 @@ class LDASsetup:
         # ------
         # Required resource manager input fields
         # ------
-        rqdRmInpKeys = ['account', 'walltime', 'ntasks_model', 'ntasks-per-node']
+        rqdRmInpKeys = ['account', 'walltime', 'ntasks_model', 'ntasks-per-node', 'email']
         # ------
         # Optional resource manager input fields
         # ------
@@ -1326,10 +1326,12 @@ class LDASsetup:
                     elif 'MY_NODES' in line :
                         line_ = line.replace('MY_NODES',str(self.optRmInp['nodes']))
                         fout.write(line_.replace('MY_NTASKS_PER_NODE',str(self.rqdRmInp['ntasks-per-node'])))
-                        if int(self.rqdRmInp['ntasks-per-node']) > 40:
-                           fout.write("#SBATCH --constraint=cas\n")
-                        if (28 < int(self.rqdRmInp['ntasks-per-node']) and int(self.rqdRmInp['ntasks-per-node']) <= 40) :
-                           fout.write("#SBATCH --constraint=sky\n")
+                        # if int(self.rqdRmInp['ntasks-per-node']) > 40:
+                        #    fout.write("#SBATCH --constraint=cas\n")
+                        # if (28 < int(self.rqdRmInp['ntasks-per-node']) and int(self.rqdRmInp['ntasks-per-node']) <= 40) :
+                        #    fout.write("#SBATCH --constraint=sky\n")
+                    elif 'MY_EMAIL' in line :
+                        fout.write(line.replace('MY_EMAIL',str(self.rqdRmInp['email'])))
                     elif 'MY_OSERVER_NODES' in line :
                         fout.write(line.replace('MY_OSERVER_NODES',str(self.optRmInp['oserver_nodes'])))
                     elif 'MY_WRITERS_NPES' in line :
