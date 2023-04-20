@@ -1856,10 +1856,6 @@ contains
        end do
     end do
     
-    !SA: added to compare pert error
-    write (logunit,*) 'pert_param is: '
-    write (logunit,'(I6.6)') pert_param
-
   end subroutine assemble_pert_param
 
 
@@ -1925,10 +1921,10 @@ contains
     N_pert = sum( pert_select )
     
     !SA: added to fixe error and see where N_pert comes from
-    write (logunit,*) 'N_pert is: '
-    write (logunit,'(I6.6)') N_pert
-    write (logunit,*) 'N_pert_max is: '
-    write (logunit,'(I6.6)') N_pert_max
+    !write (logunit,*) 'N_pert is: '
+    !write (logunit,'(I6.6)') N_pert
+    !write (logunit,*) 'N_pert_max is: '
+    !write (logunit,'(I6.6)') N_pert_max
 
   end subroutine get_pert_select
 
