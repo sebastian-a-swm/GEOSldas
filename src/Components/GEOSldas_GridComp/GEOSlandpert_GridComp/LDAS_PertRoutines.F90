@@ -1927,7 +1927,7 @@ contains
     !SA: added to fixe error and see where N_pert comes from
     write (logunit,*) 'N_pert is: '
     write (logunit,'(I6.6)') N_pert
-    write (logunit,*) 'N_force_pert_max is: '
+    write (logunit,*) 'N_pert_max is: '
     write (logunit,'(I6.6)') N_pert_max
 
   end subroutine get_pert_select
